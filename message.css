@@ -1,0 +1,23 @@
+div.rate-my-professors-extension {
+  margin-bottom: 10px;
+}
+
+div.rate-my-professors-extension h5 {
+  font-size: 16px;
+}
+
+div.rate-my-professors-extension h5 strong {
+  font-weight: bold;
+}
+
+div.rate-my-professors-extension h5 strong.green {
+  color: green;
+}
+
+div.rate-my-professors-extension h5 strong.red {
+  color: red;
+}
+
+div.rate-my-professors-extension h5 strong.yellow {
+  color: yellow;
+}

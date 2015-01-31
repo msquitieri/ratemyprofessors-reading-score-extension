@@ -1,0 +1,15 @@
+{
+  "manifest_version": 2,
+  "name": "RateMyProfessors Chrome Extension",
+  "version": "0.1",
+  "content_scripts": [
+    {
+      "matches": [
+        "http://www.ratemyprofessors.com/ShowRatings.jsp?tid=*"
+      ],
+
+      "js": ["jquery-1.11.2.min.js", "content.js"],
+      "css" : ["message.css"]
+    }
+  ]
+}
