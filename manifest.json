@@ -1,6 +1,6 @@
 {
   "manifest_version": 2,
-  "name": "RateMyProfessors Chrome Extension",
+  "name": "RateMyProfessors Stupidity Filter",
   "version": "0.1",
   "content_scripts": [
     {
@@ -8,8 +8,8 @@
         "http://www.ratemyprofessors.com/ShowRatings.jsp?tid=*"
       ],
 
-      "js": ["jquery-1.11.2.min.js", "content.js"],
-      "css" : ["message.css"]
+      "js": ["js/jquery-1.11.2.min.js", "js/readability.js", "content.js"],
+      "css" : ["css/message.css"]
     }
   ]
 }

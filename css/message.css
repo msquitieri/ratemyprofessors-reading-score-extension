@@ -18,6 +18,6 @@ div.rate-my-professors-extension h5 strong.red {
   color: red;
 }
 
-div.rate-my-professors-extension h5 strong.yellow {
-  color: yellow;
+div.rate-my-professors-extension h5 strong.orange {
+  color: rgb(255, 155, 0);
 }
