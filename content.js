@@ -5,6 +5,24 @@ function isValid(comment) {
   return true;
 }
 
+function getMessageBasedOnScore(score) {
+  var message = 'This user received a reading score of <strong>'+score+'</strong> and ';
+
+  if (score < 4.00) {
+    message += 'should be <strong class="red">ignored</strong>.';
+  } else if (score < 6.00) {
+    message += 'should be treated with <strong class="orange">caution</strong>.';
+  } else {
+    message += 'can be <strong class="green">trusted</strong>.';
+  }
+
+  return message;
+}
+
+function lightenComment(comment) {
+  $(comment).parents("tr").css('opacity', '0.5');
+}
+
 function injectReadingScores() {
   $('.comments p').each(function(i, comment) {
     var text = $(comment).html();
@@ -12,19 +30,13 @@ function injectReadingScores() {
     if (isValid(text)) {
       var $div = $("<div></div>").addClass(CONTAINER_CLASS),
           $header = $("<h5></h5>"),
-          message, score;
+          score = readability.flesch_kincaid_grade_level(text).toFixed(2),
+          message = getMessageBasedOnScore(score);
 
-      score = readability.flesch_kincaid_grade_level(text).toFixed(2);
-
-      message = 'This user received a reading score of <strong>'+score+'</strong> and ';
       if (score < 4.00) {
-        message += 'should be <strong class="red">ignored</strong>.';
-        $(comment).parents("tr").css('opacity', '0.7');
-      } else if (score < 6.00) {
-        message += 'should be treated with <strong class="orange">caution</strong>.';
-      } else {
-        message += 'can be <strong class="green">trusted</strong>.';
+        lightenComment(comment);
       }
+
       $header.html(message);
       $div.append($header);
       $(comment).parent().prepend($div);
